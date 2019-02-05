@@ -1,5 +1,8 @@
-# Install opencv 
+# Playing with OpenCV
 
+![Peacocks](./pics/grab.jpg)
+
+# Install opencv 
 
 
 ```
