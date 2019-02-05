@@ -2,8 +2,12 @@
 
 ![Peacocks](./pics/grab.jpg)
 
-# Install opencv 
+# Install OpenCV 4.0.1
 
+
+Build from source to switch things on.
+
+Get sources
 
 ```
 $ mkdir ~/opencv
@@ -19,6 +23,7 @@ $ cd release
 ```
 mkvirtualenv opencv-play
 VENV=~/.virtualenvs/opencv-play
+ARCH_BIN=
 cmake -DCMAKE_INSTALL_PREFIX=${VENV} \
       -DCPYTHON_EXECUTABLE=${VENV}/bin/python \
       -DCPYTHON_PACKAGES_PATH=${VENV}/lib/python3.7/site-packages \
@@ -32,11 +37,20 @@ cmake -DCMAKE_INSTALL_PREFIX=${VENV} \
       -DWITH_EIGEN=ON \
       -DBUILD_EXAMPLES=ON \
       -DBUILD_NEW_PYTHON_SUPPORT=ON \
-      -DWITH_V4L=ON -D BUILD_EXAMPLES=ON ../
+      -DWITH_V4L=ON \
+      -DBUILD_EXAMPLES=ON \
+      -DWITH_CUDA=ON \
+      -DCUDA_ARCH_BIN=${ARCH_BIN} \
+      -DCUDA_ARCH_PTX="" \
+      -DCUDA_FAST_MATH=ON \
+      -DWITH_CUBLAS=ON \ 
+      ../
 ```
 
 ```
 $ make -j4
 ```
 
-https://docs.opencv.org/4.0.1/
+# Resources
+
+ - https://docs.opencv.org/4.0.1/
