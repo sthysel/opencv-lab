@@ -7,7 +7,7 @@
 
 Build from source to switch things on.
 
-Get sources
+Get sources and prep build folders
 
 ```
 $ mkdir ~/opencv
@@ -18,13 +18,13 @@ $ mkdir release
 $ cd release
 ```
 
-
+make a virtualenv and drop lib in there
 
 ```
-mkvirtualenv opencv-play
-VENV=~/.virtualenvs/opencv-play
-ARCH_BIN=
-cmake -DCMAKE_INSTALL_PREFIX=${VENV} \
+$ mkvirtualenv opencv-play
+$ export VENV=~/.virtualenvs/opencv-play
+$ export ARCH_BIN=
+$ cmake -DCMAKE_INSTALL_PREFIX=${VENV} \
       -DCPYTHON_EXECUTABLE=${VENV}/bin/python \
       -DCPYTHON_PACKAGES_PATH=${VENV}/lib/python3.7/site-packages \
       -DCMAKE_BUILD_TYPE=RELEASE \
@@ -47,8 +47,11 @@ cmake -DCMAKE_INSTALL_PREFIX=${VENV} \
       ../
 ```
 
+Build quicker
+
 ```
 $ make -j4
+$ make install
 ```
 
 # Resources
